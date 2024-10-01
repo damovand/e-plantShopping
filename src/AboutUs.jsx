@@ -5,19 +5,18 @@ function AboutUs() {
   return (
     <div className="about-us-container">
       {/* <h1 className="about-us-heading">About Us</h1> */}
-      <p className="about-us-description">Welcome to Paradise Nursery, where green meets serenity!</p>
+      <p className="about-us-description">Welcome to House Plant Shop!</p>
       <p className="about-us-content">
-        At Paradise Nursery, we are passionate about bringing nature closer to you. Our mission is to provide a wide range of 
-        high-quality plants that not only enhance the beauty of your surroundings but also contribute to a healthier and 
-        more sustainable lifestyle. From air-purifying plants to aromatic fragrant ones, we have something for every 
-        plant enthusiast.
+        Our founders started out as a group of childhood friends that all had a passion for nature and the outdoors. 
+        Post college, they ended up becoming roommates. Turns out, having a home filled with plants was something they continued to have in common. 
+        Unfortunately, they found it difficult to find a place online to purchase houseplants that was easy to navigate and wasn’t just geared to wholesale. 
+        So, in 2017, they decided to launch HousePlantShop.com to be the ultimate destination for everything houseplants. 
       </p>
       {/* <p className="plant_logo_left"><img src="https://p1.hiclipart.com/preview/922/979/640/green-leaf-logo-emoji-seedling-emoticon-sticker-plant-plant-stem-flower-png-clipart-thumbnail.jpg" height='50px' width='50px' alt="" /></p> */}
       <p className="about-us-content">
-        Our team of experts is dedicated to ensuring that each plant meets our strict standards of quality and care. 
-        Whether you're a seasoned gardener or just starting your green journey, we're here to support you every step of 
-        the way. Feel free to explore our collection, ask questions, and let us help you find the perfect plant for your 
-        home or office.
+      <strong>Everything House Plants</strong><br/>
+      We’re your online houseplant destination. 
+      We offer a wide range of houseplants and accessories shipped directly from our (green)house to yours! 
       </p>
       {/* <p className="plant_logo_right"><img src="https://p1.hiclipart.com/preview/922/979/640/green-leaf-logo-emoji-seedling-emoticon-sticker-plant-plant-stem-flower-png-clipart-thumbnail.jpg" height='50px' width='50px' alt="" /></p> */}
 
