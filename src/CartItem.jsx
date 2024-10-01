@@ -6,31 +6,23 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-  const [showCart, setShowCart] = useState(false); 
-  const [showPlants, setShowPlants] = useState(); 
- // console.log(" Cart ",cart);
-  // Calculate total amount for all products in the cart
   
+ 
   const calculateTotalAmount = () => {
     let total = 0.0;
     
     cart.forEach((item) => {
         total +=  item.cost * item.quantity;   
-       // console.log(" total = ", total, "  cost" ,cost )
     });
     return total;
   };
 
   const handleContinueShopping = (e) => {
-	console.log(" In cartItems.handleContinueShopping ");
-	e.preventDefault();
-    setShowCart(false);
-    setShowPlants(true);
+	onContinueShopping(e);
   };
   const total_amount = calculateTotalAmount () ;
   
   const handleIncrement = (item) => {
-   // console.log(" In handleIncrement  ");
     dispatch(incrementQuantity(item));
  };
 
