@@ -7,7 +7,7 @@ const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const [showCart, setShowCart] = useState(false); 
-  const [showPlants, setShowPlants] = useState(false); 
+  const [showPlants, setShowPlants] = useState(); 
  // console.log(" Cart ",cart);
   // Calculate total amount for all products in the cart
   
