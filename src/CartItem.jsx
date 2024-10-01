@@ -1,47 +1,49 @@
 import React, { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity} from './CartSlice';
+import { removeItem, updateQuantity, incrementQuantity, decrementQuantity} from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const [showCart, setShowCart] = useState(false); 
-  console.log(" Cart ",cart);
+  const [showPlants, setShowPlants] = useState(false); 
+ // console.log(" Cart ",cart);
   // Calculate total amount for all products in the cart
   
   const calculateTotalAmount = () => {
     let total = 0.0;
     
     cart.forEach((item) => {
-        let cost = parseFloat(item.cost || 0);
-        cost += 2
-        total +=  cost * item.quanity;   
-        console.log(" == ", cost )});
-      // console.log(" In alculateTotalAmount  ",item.cost, " * ", item.quantity, " = ",total);
+        total +=  item.cost * item.quantity;   
+       // console.log(" total = ", total, "  cost" ,cost )
+    });
     return total;
   };
 
   const handleContinueShopping = (e) => {
-	console.log(" In handleContinueShopping ");
+	console.log(" In cartItems.handleContinueShopping ");
 	e.preventDefault();
     setShowCart(false);
+    setShowPlants(true);
   };
   const total_amount = calculateTotalAmount () ;
+  
   const handleIncrement = (item) => {
-    console.log(" In handleIncrement  ");
-    dispatch(updateQuantity(item),1);
+   // console.log(" In handleIncrement  ");
+    dispatch(incrementQuantity(item));
  };
 
  const handleDecrement = (item) => {
-    console.log(" In handleDecrement quantity: ",item.quantity );
+   // console.log(" In handleDecrement quantity: ",item.quantity );
 
     if ( item.quantity == 0)
         Return;
-    if (item.quantity > 2) {
-        dispatch(updateQuantity(item),-1);
+    if (item.quantity >= 2) {
+        dispatch(decrementQuantity(item));
     }
-    else if (item.quanity ==1 ) {
+    else if (item.quantity == 1 ) {
+        dispatch(decrementQuantity(item));
         dispatch(removeItem(item));
     };
  };
@@ -51,7 +53,8 @@ const CartItem = ({ onContinueShopping }) => {
   };
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-    item.cost * item.quantity;
+   //  console.log (" In Calculate Cost ", item.cost ," * ", parseInt(item.quantity))
+    return item.quantity * item.cost  ;
  };
   return (
     <div className="cart-container">

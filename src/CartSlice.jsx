@@ -10,7 +10,7 @@ export const CartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
         const { name, image, cost } = action.payload;
-        console.log("Add Item   ", name, cost )
+    //    console.log("Add Item   ", name, cost )
            
         const existingItem = state.items.find(item => item.name === name);
         
@@ -22,7 +22,7 @@ export const CartSlice = createSlice({
         console.log(state.items)
     },
     removeItem: (state, action) => {
-        console.log ("Remove ", action.payload.name)
+      //  console.log ("Remove ", action.payload.name)
         state.items = state.items.filter(item => item.name !== action.payload.name);
     },
     updateQuantity: (state, action) => {
@@ -31,17 +31,20 @@ export const CartSlice = createSlice({
 		const itemToUpdate = state.items.find(item => item.name === name);
 		if (itemToUpdate) {
 		  itemToUpdate.quantity = quantity;
-          console.log ("Update done quanityt = ",itemToUpdate.quantity)
+          console.log ("Update done quanity = ",itemToUpdate.quantity)
 		}
     },
     incrementQuantity: (state, action) => {
-        const itemToIncrease = state.items.find(item => item.name === action.payload);
+        const itemToIncrease = state.items.find(item => item.name === action.payload.name);
+        
         if (itemToIncrease) {
-          itemToIncrease.quantity += 1;
+          itemToIncrease.quantity++;
         }
+       // console.log ("Done increase  ", itemToIncrease.quantity);
     },
     decrementQuantity: (state, action) => {
-        const itemToDecrease = state.items.find(item => item.name === action.payload);
+        const itemToDecrease = state.items.find(item => item.name === action.payload.name);
+        
         if (itemToDecrease) {
           itemToDecrease.quantity -= 1;
         }
