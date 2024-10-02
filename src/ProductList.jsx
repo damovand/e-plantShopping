@@ -161,7 +161,7 @@ function ProductList() {
                     name: "Echinacea",
                     image: "https://cdn.pixabay.com/photo/2014/12/05/03/53/echinacea-557477_1280.jpg",
                     description: "Boosts immune system, helps fight colds.",
-                    cost: "16"
+                    cost: "$16"
                 },
                 {
                     name: "Peppermint",
